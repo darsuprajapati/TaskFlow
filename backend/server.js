@@ -24,17 +24,17 @@ app.use(cors({
 // Error handling middleware
 app.use(errorHandler)
 
-const swaggerDoc = YAML.load('./openapi.yaml')
+// const swaggerDoc = YAML.load('./openapi.yaml')
 
 // api route end Point
 app.use("/api", MainRouter)
-app.use("/api-docs",swaggerUi.serve,swaggerUi.setup(swaggerDoc))
+// app.use("/api-docs",swaggerUi.serve,swaggerUi.setup(swaggerDoc))
 
 // Start the server
-const PORT = process.env.PORT || 8080
+// const PORT = process.env.PORT || 8080
 
-app.listen(PORT, () => {
-    console.log(`Server running on port http://localhost:${PORT}`)
-})
+// app.listen(PORT, () => {
+//     console.log(`Server running on port http://localhost:${PORT}`)
+// })
 
 export default app
