@@ -29,7 +29,9 @@ app.use(
 const swaggerDoc = YAML.load(path.join(__dirname, 'openapi.yaml'))
 
 app.use('/api', MainRouter)
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc))
+app.use('/api-docs', swaggerUi.serve)
+app.get('/api-docs', swaggerUi.setup(swaggerDoc))
+
 
 app.use(errorHandler)
 
