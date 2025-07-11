@@ -1,0 +1,150 @@
+openapi: 3.0.0
+info:
+  title: Taskflow
+  description: TaskFlow is a sleek task management app built with the MERN stack and Redux. It allows users to create, track, and organize tasks with features like priority levels, due dates, filters, and authentication. The app uses a popup modal for adding tasks and follows modern UI/UX principles with responsive design and dark mode support.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080/api
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+security:
+  - bearerAuth: []
+tags:
+  - name: auth
+  - name: Tasks
+paths:
+  /auth/register:
+    post:
+      tags:
+        - auth
+      summary: Register user
+      description: Register a new user with name, email, and password.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: test
+                email: test123@gmail.com
+                password: '123456789'
+      responses:
+        '200':
+          description: User registered successfully
+          content:
+            application/json: {}
+
+  /auth/login:
+    post:
+      tags:
+        - auth
+      summary: Login
+      description: Authenticate user and return JWT token.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                email: test123@gmail.com
+                password: '123456789'
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json: {}
+
+  /auth/profile:
+    get:
+      tags:
+        - auth
+      summary: Get profile
+      description: Retrieve user profile data.
+      responses:
+        '200':
+          description: Profile data retrieved
+          content:
+            application/json: {}
+
+  /tasks:
+    get:
+      tags:
+        - Tasks
+      summary: Get all tasks
+      description: Retrieve all tasks for the authenticated user.
+      responses:
+        '200':
+          description: List of tasks
+          content:
+            application/json: {}
+
+    post:
+      tags:
+        - Tasks
+      summary: Create a task
+      description: Add a new task to the list.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: Test Task
+                description: test task description
+                priority: medium
+      responses:
+        '200':
+          description: Task created successfully
+          content:
+            application/json: {}
+
+  /tasks/{id}:
+    put:
+      tags:
+        - Tasks
+      summary: Update Task
+      description: Update task information by ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          example: 6870cb262ee803866f594734
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                title: Updated Task
+                description: Updated description
+                priority: high
+                dueDate: 2025-07-12
+      responses:
+        '200':
+          description: Task updated successfully
+          content:
+            application/json: {}
+
+    delete:
+      tags:
+        - Tasks
+      summary: Delete Task
+      description: Delete a task by its ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          example: 6870cb262ee803866f594734
+      responses:
+        '200':
+          description: Task deleted successfully
+          content:
+            application/json: {}
