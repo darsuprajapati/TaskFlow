@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
+import { HashRouter , Route, Routes, Navigate } from 'react-router-dom'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashborad'
@@ -11,7 +11,7 @@ import Test from './Test'
 const App = () => {
   return (
     <AuthCheck>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           {/* Public Routes - Redirect to dashboard if authenticated */}
           <Route path="/login" element={
@@ -42,7 +42,7 @@ const App = () => {
           <Route path="/" element={<Navigate to="/login" replace />} />
           <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </AuthCheck>
   )
 }
