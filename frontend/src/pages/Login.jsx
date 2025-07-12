@@ -58,13 +58,13 @@ const Login = () => {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 px-5">
             {/* Theme Toggle */}
             <div className="absolute top-4 right-4">
                 <ThemeToggle />
             </div>
             
-            <div className="w-full max-w-md p-8 space-y-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 dark:border-gray-700/20">
+            <div className="w-full max-w-md p-5 space-y-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 dark:border-gray-700/20">
                 <div className="text-center space-y-2">
                     <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Welcome Back</h1>
                     <p className="text-gray-600 dark:text-gray-400 text-sm">Sign in to your account to continue</p>
