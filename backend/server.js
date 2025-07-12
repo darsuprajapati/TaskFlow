@@ -55,4 +55,5 @@ app.get('/api-docs', (req, res) => {
 app.use(errorHandler)
 
 // ✅ Export app for Vercel
+
 export default app
