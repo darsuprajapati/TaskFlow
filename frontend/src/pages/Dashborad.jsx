@@ -12,8 +12,6 @@ import {
     ClipboardCheck,
     Clock,
     Trash2,
-    ArrowUpDown,
-    CheckCircle2,
     Pencil,
     Zap,
 } from 'lucide-react';
@@ -71,7 +69,7 @@ const Dashboard = () => {
     });
     const [editTaskId, setEditTaskId] = useState(null); // Track if editing
 
-    
+
 
     // Fetch tasks on mount
     useEffect(() => {
@@ -269,14 +267,12 @@ const Dashboard = () => {
             <header className="bg-white dark:bg-gray-800 shadow-sm p-4">
                 <div className="max-w-7xl mx-auto flex justify-between items-center">
                     <div>
-                        <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+                        <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
                             TaskFlow
                         </h1>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <p className="text-sm font-medium text-gray-600 dark:text-gray-400">
-                            Welcome back, {user?.name || 'User'}!
-                        </p>
+
                         <ThemeToggle />
                         <Button
                             onClick={handleLogout}
@@ -291,15 +287,21 @@ const Dashboard = () => {
 
             {/* <Header user={user} handleLogout={handleLogout}/> */}
 
+
             {/* Main Content */}
             <main className="max-w-7xl mx-auto px-4 py-8">
+                <div className='px-3 text-center mb-5'>
+                    <p className="text-xl font-medium text-gray-600 dark:text-gray-400">
+                        Welcome back, {user?.name || 'User'}!
+                    </p>
+                </div>
                 {/* Stats Overview */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
-                    <StatCard label="Total Tasks" value={stats.total} icon={<ClipboardCheck className='w-5 h-5'/>} color="blue" />
-                    <StatCard label="Completed" value={stats.completed} icon={<Check className='w-5 h-5'/>} color="green" />
-                    <StatCard label="Active" value={stats.active} icon={<Clock className='w-5 h-5'/>} color="yellow" />
-                    <StatCard label="High Priority" value={stats.highPriority} icon={<BookMarked className='w-5 h-5'/>} color="red" />
-                    <StatCard label="Due Soon" value={stats.dueSoon} icon={<BookAlert className='w-5 h-5'/>} color="red" />
+                    <StatCard label="Total Tasks" value={stats.total} icon={<ClipboardCheck className='w-5 h-5' />} color="blue" />
+                    <StatCard label="Completed" value={stats.completed} icon={<Check className='w-5 h-5' />} color="green" />
+                    <StatCard label="Active" value={stats.active} icon={<Clock className='w-5 h-5' />} color="yellow" />
+                    <StatCard label="High Priority" value={stats.highPriority} icon={<BookMarked className='w-5 h-5' />} color="red" />
+                    <StatCard label="Due Soon" value={stats.dueSoon} icon={<BookAlert className='w-5 h-5' />} color="red" />
                 </div>
 
                 {/* Filters */}
@@ -360,8 +362,8 @@ const Dashboard = () => {
                                         <button
                                             onClick={() => handleToggleComplete(task)}
                                             className={`mt-1 w-5 h-5 rounded border flex-shrink-0 transition-colors duration-200 ${task.completed
-                                                    ? 'bg-green-500 border-green-500'
-                                                    : 'border-gray-400 dark:border-gray-600'
+                                                ? 'bg-green-500 border-green-500'
+                                                : 'border-gray-400 dark:border-gray-600'
                                                 }`}
                                             title="Toggle Complete"
                                         >
@@ -379,10 +381,10 @@ const Dashboard = () => {
                                             <div className="mt-2 flex flex-wrap gap-2">
                                                 <span
                                                     className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${task.priority === 'high'
-                                                            ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
-                                                            : task.priority === 'medium'
-                                                                ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
-                                                                : 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+                                                        ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+                                                        : task.priority === 'medium'
+                                                            ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200'
+                                                            : 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
                                                         }`}
                                                 >
                                                     {task.priority} priority
@@ -428,7 +430,7 @@ const Dashboard = () => {
             {/* Add Task Modal */}
             {showModal && (
                 <Dialog open={showModal} onOpenChange={setShowModal}>
-                    <DialogContent className="sm:max-w-[500px] bg-gray-800">
+                    <DialogContent className="sm:max-w-[500px] dark:bg-gray-800 ">
                         <DialogHeader>
                             <DialogTitle>{editTaskId ? 'Edit Task' : 'Add New Task'}</DialogTitle>
                         </DialogHeader>
