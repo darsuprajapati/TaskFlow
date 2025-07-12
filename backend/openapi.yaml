@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Taskflow
-  description: TaskFlow is a sleek task management app built with the MERN stack and Redux. It allows users to create, track, and organize tasks with features like priority levels, due dates, filters, and authentication. The app uses a popup modal for adding tasks and follows modern UI/UX principles with responsive design and dark mode support.
+  description: TaskFlow is a sleek task management app built with the MERN stack  It allows users to create, track, and organize tasks with features like priority levels, due dates, filters, and authentication
   version: 1.0.0
 servers:
   - url: https://task-flow-bay-tau.vercel.app/api
